@@ -7,6 +7,7 @@ import java.util.UUID;
 import entities.Departamento;
 import entities.Funcao;
 import entities.Funcionario;
+import repositories.FuncionarioRepositoryJson;
 import repositories.FuncionarioRepositoryXml;
 
 public class FuncionarioController {
@@ -83,6 +84,11 @@ public class FuncionarioController {
 		var funcionarioRepoXml = new FuncionarioRepositoryXml();
 		funcionarioRepoXml.exportar(funcionario);
 		System.out.println("\nARQUIVO XML GERADO COM SUCESSO!");
+		
+		//Exportando os dados do funcionário para arquivo JSON
+		var funcionarioRepoJson = new FuncionarioRepositoryJson();
+		funcionarioRepoJson.exportar(funcionario);
+		System.out.println("\nARQUIVO JSON GERADO COM SUCESSO!");
 	}
 }
 
