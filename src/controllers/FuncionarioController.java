@@ -7,6 +7,7 @@ import java.util.UUID;
 import entities.Departamento;
 import entities.Funcao;
 import entities.Funcionario;
+import repositories.FuncionarioRepositoryXml;
 
 public class FuncionarioController {
 
@@ -77,6 +78,11 @@ public class FuncionarioController {
 		for(var funcao : funcionario.getFuncoes()) { //percorrendo as funções			
 			System.out.println("FUNÇÃO........: " + funcao.getNome());
 		}		
+		
+		//Exportando os dados do funcionário para arquivo XML
+		var funcionarioRepoXml = new FuncionarioRepositoryXml();
+		funcionarioRepoXml.exportar(funcionario);
+		System.out.println("\nARQUIVO XML GERADO COM SUCESSO!");
 	}
 }
 
